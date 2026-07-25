@@ -28,7 +28,7 @@ class SupabaseStorage(Storage):
     """
 
     def __init__(self):
-        self.supabase_url = settings.SUPABASE_URL
+        self.supabase_url = settings.SUPABASE_URL.rstrip('/') if settings.SUPABASE_URL else ''
         self.supabase_key = settings.SUPABASE_KEY
         self.bucket = settings.SUPABASE_BUCKET
         
