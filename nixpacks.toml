@@ -1,8 +1,0 @@
-# Nixpacks config for Railway
-# Points to requirements.txt inside backend/ directory
-
-[phases.setup]
-nixPkgs = ["python311"]
-
-[phases.install]
-cmds = ["pip install -r backend/requirements.txt"]
