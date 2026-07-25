@@ -53,12 +53,19 @@ class SupabaseStorage(Storage):
 
     def _save(self, name, content):
         """Upload a file to Supabase Storage."""
+        import mimetypes
+        import logging
+        logger = logging.getLogger(__name__)
+
         # Read file content
         content.seek(0)
         file_data = content.read()
 
-        # Determine content type
-        content_type = getattr(content, 'content_type', 'application/octet-stream')
+        # Determine content type reliably
+        content_type = getattr(content, 'content_type', None)
+        if not content_type or content_type == 'application/octet-stream':
+            guessed_type, _ = mimetypes.guess_type(name)
+            content_type = guessed_type or 'image/webp'
 
         # Upload via Supabase Storage API
         url = f"{self.base_api_url}/object/{self.bucket}/{name}"
@@ -71,10 +78,14 @@ class SupabaseStorage(Storage):
         response = requests.post(url, headers=headers, data=file_data)
 
         if response.status_code not in (200, 201):
-            raise IOError(
-                f"Failed to upload file to Supabase Storage: "
-                f"{response.status_code} - {response.text}"
+            error_msg = (
+                f"[SupabaseStorage Error] Failed to upload '{name}' to bucket '{self.bucket}'. "
+                f"URL: {url} | Status: {response.status_code} | "
+                f"Content-Type: {content_type} | Response: {response.text}"
             )
+            print(error_msg)
+            logger.error(error_msg)
+            raise IOError(error_msg)
 
         return name
 
