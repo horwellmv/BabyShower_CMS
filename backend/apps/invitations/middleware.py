@@ -28,7 +28,7 @@ class GuestSessionMiddleware:
 
         is_exempt = (
             path == login_url or
-            path.startswith('/admin/')
+            path.startswith('/admin')
         )
 
         if not is_exempt:

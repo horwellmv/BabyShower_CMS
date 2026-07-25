@@ -145,19 +145,14 @@ SUPABASE_URL = os.getenv('SUPABASE_URL', '')
 SUPABASE_KEY = os.getenv('SUPABASE_KEY', '')
 SUPABASE_BUCKET = os.getenv('SUPABASE_BUCKET', 'media')
 
-# Static files storage: compressed + manifest in production, basic WhiteNoise in development
-if not DEBUG:
-    STORAGES = {
-        "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        },
-    }
-else:
-    STORAGES = {
-        "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
-        },
-    }
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+
+# Static files storage: use CompressedStaticFilesStorage to prevent 500 errors if a static manifest entry is missing
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 # Media storage: Supabase in production, local filesystem in development
 if SUPABASE_URL and SUPABASE_KEY:
@@ -169,34 +164,29 @@ else:
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     }
 
-# =============================================================================
-# DEFAULT PRIMARY KEY
-# =============================================================================
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# =============================================================================
-# SECURITY SETTINGS (Production)
-# =============================================================================
-
+# Security settings for production
 if not DEBUG:
-    # HTTPS / SSL
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     
-    # HSTS
     SECURE_HSTS_SECONDS = 31536000  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     
-    # Cookies
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     
     # CSRF trusted origins for Railway
     CSRF_TRUSTED_ORIGINS = [
-        f'https://{host}' for host in ALLOWED_HOSTS if host and host != '*'
+        'https://*.railway.app',
+        'https://*.up.railway.app',
     ]
+    csrf_origins_env = os.getenv('CSRF_TRUSTED_ORIGINS')
+    if csrf_origins_env:
+        CSRF_TRUSTED_ORIGINS.extend([origin.strip() for origin in csrf_origins_env.split(',') if origin.strip()])
+
 
 # =============================================================================
 # JAZZMIN (Admin Panel)
