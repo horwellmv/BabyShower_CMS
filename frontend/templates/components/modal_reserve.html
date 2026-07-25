@@ -1,0 +1,37 @@
+<!-- Reservation Confirmation Modal Overlay -->
+<div id="reservation-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-on-background/40 backdrop-blur-sm transition-all duration-300 hidden">
+    <div class="relative w-full max-w-sm bg-white/95 backdrop-blur-md rounded-xl border border-surface-variant/50 shadow-[0_30px_60px_-15px_rgba(120,82,82,0.2)] overflow-hidden p-stack-lg flex flex-col items-center text-center animate-in fade-in zoom-in duration-300">
+        <!-- Close Button -->
+        <button class="absolute top-4 right-4 text-outline hover:text-primary transition-colors focus:outline-none" onclick="closeReserveModal()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <!-- Image Container -->
+        <div class="relative w-32 h-32 mb-stack-md flex items-center justify-center bg-primary/5 rounded-full">
+            <img id="modal-gift-image" class="w-24 h-24 object-cover rounded-lg" src="" alt="" />
+        </div>
+        
+        <!-- Content -->
+        <h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm" id="modal-title">¿Deseas reservar este regalo?</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg px-2" id="modal-description">
+            Al confirmar, este regalo quedará reservado para ti. Así ayudamos a que la pequeña Adhara no reciba regalos repetidos.
+        </p>
+        
+        <!-- Actions -->
+        <div class="w-full space-y-stack-sm">
+            <button id="modal-confirm-btn" class="w-full py-3.5 px-6 bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-md active:scale-95 transition-transform duration-150 focus:outline-none">
+                Sí, reservar regalo
+            </button>
+            <button class="w-full py-3.5 px-6 text-primary font-label-md text-label-md rounded-full border border-primary/20 hover:bg-primary/5 active:scale-95 transition-all duration-150 focus:outline-none" onclick="closeReserveModal()">
+                Volver
+            </button>
+        </div>
+        
+        <!-- Footer Decorative -->
+        <div class="mt-stack-lg flex justify-center space-x-2">
+            <span class="material-symbols-outlined text-primary/30 text-[12px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            <span class="material-symbols-outlined text-primary/30 text-[12px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            <span class="material-symbols-outlined text-primary/30 text-[12px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<header class="bg-surface/90 backdrop-blur-md sticky full-width top-0 z-40 border-b border-surface-variant/20 transition-all duration-300">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+        <button onclick="toggleHamburger()" class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+            <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+        <h1 onclick="window.location.href='{% url 'home' %}'" class="font-headline-md text-headline-md text-primary italic cursor-pointer">Adhara</h1>
+        <a href="{% url 'my_reservations' %}" class="text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+        </a>
+    </div>
+</header>

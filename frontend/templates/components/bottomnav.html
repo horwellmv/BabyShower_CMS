@@ -1,0 +1,33 @@
+{% with url_name=request.resolver_match.url_name %}
+<!-- BottomNavBar for Mobile Devices -->
+<nav class="md:hidden bg-surface-container-low/95 backdrop-blur-lg shadow-[0_-5px_30px_-5px_rgba(120,82,82,0.1)] fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md rounded-full z-50 flex justify-around items-center p-2 border border-surface-variant/40">
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'home' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'home' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'home' %}1{% else %}0{% endif %};">home</span>
+        <span class="font-label-md text-[11px] mt-0.5">Inicio</span>
+    </a>
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'gallery' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'gallery' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'gallery' %}1{% else %}0{% endif %};">photo_library</span>
+        <span class="font-label-md text-[11px] mt-0.5">Fotos</span>
+    </a>
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'gifts' or url_name == 'my_reservations' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'gifts' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'gifts' or url_name == 'my_reservations' %}1{% else %}0{% endif %};">card_giftcard</span>
+        <span class="font-label-md text-[11px] mt-0.5">Regalos</span>
+    </a>
+</nav>
+
+<!-- Desktop Floating Nav Fallback -->
+<nav class="hidden md:flex bg-surface-container-low/95 backdrop-blur-lg shadow-[0_10px_30px_-5px_rgba(120,82,82,0.15)] shadow-xl fixed bottom-6 left-1/2 -translate-x-1/2 z-50 justify-around items-center p-2 rounded-full min-w-[400px] border border-surface-variant/40">
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'home' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'home' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'home' %}1{% else %}0{% endif %};">home</span>
+        <span class="font-label-md text-[12px] mt-0.5">Inicio</span>
+    </a>
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'gallery' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'gallery' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'gallery' %}1{% else %}0{% endif %};">photo_library</span>
+        <span class="font-label-md text-[12px] mt-0.5">Fotos</span>
+    </a>
+    <a class="flex flex-col items-center justify-center rounded-full transition-all {% if url_name == 'gifts' or url_name == 'my_reservations' %}bg-primary text-on-primary px-6 py-2 scale-95 duration-150{% else %}text-on-secondary-container px-4 py-2 hover:bg-secondary-container/50{% endif %}" href="{% url 'gifts' %}">
+        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' {% if url_name == 'gifts' or url_name == 'my_reservations' %}1{% else %}0{% endif %};">card_giftcard</span>
+        <span class="font-label-md text-[12px] mt-0.5">Regalos</span>
+    </a>
+</nav>
+{% endwith %}
