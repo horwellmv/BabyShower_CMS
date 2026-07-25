@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Galería de Fotos - Adhara Baby Shower{% endblock %}
+
+{% block extra_head %}
+<style>
+    .masonry-container {
+        column-fill: balance;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="pt-6">
+    <!-- Header Text -->
+    <div class="text-center mb-stack-lg relative">
+        <div
+            class="absolute -top-10 -left-6 opacity-30 pointer-events-none transform -rotate-12 w-24 h-24 bg-primary-fixed rounded-full blur-2xl">
+        </div>
+        <div
+            class="absolute -top-4 -right-4 opacity-30 pointer-events-none transform rotate-12 w-32 h-32 bg-secondary-fixed rounded-full blur-2xl">
+        </div>
+        <h2
+            class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm relative z-10">
+            Galería de Recuerdos
+        </h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto relative z-10">
+            Un espacio especial para compartir las fotos y momentos más tiernos de la dulce espera de Adhara.
+        </p>
+    </div>
+
+    {% if images %}
+    <!-- Responsive Masonry Grid -->
+    <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 masonry-container pb-stack-lg">
+        {% for img in images %}
+        <div
+            class="break-inside-avoid bg-white/90 backdrop-blur-md rounded-xl p-3 border border-surface-variant/50 shadow-[0_10px_30px_-5px_rgba(120,82,82,0.05)] flex flex-col group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-md fade-up-element">
+            <div class="w-full rounded-lg overflow-hidden relative">
+                <img class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
+                    src="{{ img.image.url }}" alt="{{ img.caption|default:'Foto de Adhara' }}" loading="lazy" />
+            </div>
+            {% if img.caption %}
+            <p class="font-label-md text-[12px] text-on-surface-variant text-center mt-2.5 italic">
+                {{ img.caption }}
+            </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <!-- Empty State -->
+    <div
+        class="text-center py-20 bg-white/50 backdrop-blur-sm rounded-xl border border-surface-variant/50 max-w-md mx-auto">
+        <span class="material-symbols-outlined text-outline-variant text-6xl mb-3">photo_library</span>
+        <h3 class="font-headline-sm text-primary mb-1">Aún no hay fotos</h3>
+        <p class="text-sm text-on-surface-variant px-6">
+            Los papás compartirán fotos de la dulce espera muy pronto. ¡Vuelve más tarde!
+        </p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

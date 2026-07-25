@@ -1,0 +1,114 @@
+/* Custom CSS for Baby Shower App - Whimsical Elegance Design System */
+
+body {
+    background-color: #fdf8f5;
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(235, 187, 186, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(219, 229, 223, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Material symbols global configuration */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+/* Floating animation for illustrations */
+.floating-animation {
+    animation: floating 6s ease-in-out infinite;
+}
+
+.floating-animation-delayed {
+    animation: floating 7s ease-in-out 2s infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(1.5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Glassmorphism containers */
+.glass-panel {
+    background: rgba(253, 248, 245, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px -5px rgba(120, 82, 82, 0.08);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px -12px rgba(122, 85, 85, 0.12);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(120, 82, 82, 0.2);
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 82, 82, 0.4);
+}
+
+/* Fade Up effect on scroll */
+.fade-up-element {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.fade-up-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating Animations for watercolor images */
+.float-fast {
+    animation: floatFastAnim 8s ease-in-out infinite;
+}
+.float-medium {
+    animation: floatMediumAnim 12s ease-in-out infinite;
+}
+.float-slow {
+    animation: floatSlowAnim 16s ease-in-out infinite;
+}
+
+@keyframes floatFastAnim {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-24px) rotate(1deg); }
+}
+@keyframes floatMediumAnim {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-32px) rotate(-1.5deg); }
+}
+@keyframes floatSlowAnim {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(1.2deg); }
+}

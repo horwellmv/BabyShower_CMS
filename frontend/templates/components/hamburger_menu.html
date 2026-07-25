@@ -1,0 +1,47 @@
+<!-- Hamburger Menu Overlay -->
+<div id="hamburger-overlay" class="fixed inset-0 bg-on-background/30 backdrop-blur-sm z-[60] transition-opacity duration-300 opacity-0 pointer-events-none" onclick="toggleHamburger()"></div>
+
+<!-- Drawer Panel -->
+<div id="hamburger-drawer" class="fixed top-0 left-0 bottom-0 w-64 bg-surface z-[70] shadow-2xl border-r border-surface-variant/30 transform -translate-x-full transition-transform duration-300 flex flex-col p-6">
+    <div class="flex justify-between items-center mb-8">
+        <h2 class="font-headline-sm text-headline-sm text-primary italic">Menú</h2>
+        <button onclick="toggleHamburger()" class="text-outline hover:text-primary transition-colors focus:outline-none">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+    </div>
+    
+    <div class="flex flex-col space-y-4">
+        <a href="{% url 'home' %}" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">home</span>
+            <span class="font-label-md">Inicio</span>
+        </a>
+        <a href="{% url 'gallery' %}" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">photo_library</span>
+            <span class="font-label-md">Fotos</span>
+        </a>
+        <a href="{% url 'gifts' %}" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">card_giftcard</span>
+            <span class="font-label-md">Regalos</span>
+        </a>
+        <a href="{% url 'my_reservations' %}" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+            <span class="font-label-md">Mis Reservas</span>
+        </a>
+    </div>
+
+    <div class="mt-auto border-t border-surface-variant/40 pt-4">
+        {% if request.guest %}
+            <p class="text-xs text-on-surface-variant mb-4 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">account_circle</span>
+                Invitado: <span class="font-semibold text-primary">{{ request.guest.full_name }}</span>
+            </p>
+        {% endif %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="w-full py-2.5 px-4 bg-surface-container-low text-primary border border-primary/20 rounded-lg text-xs font-semibold hover:bg-primary hover:text-on-primary transition-all duration-300 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[16px]">logout</span>
+                Cerrar Sesión
+            </button>
+        </form>
+    </div>
+</div>

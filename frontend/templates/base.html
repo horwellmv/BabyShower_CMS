@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <title>{% block title %}Adhara Baby Shower{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#785252",
+                        "surface-container": "#f2edea",
+                        "secondary-fixed": "#eee0d5",
+                        "on-secondary-fixed": "#211a14",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b6158",
+                        "tertiary-fixed-dim": "#bfc9c3",
+                        "outline-variant": "#d4c2c2",
+                        "inverse-surface": "#32302e",
+                        "primary-fixed-dim": "#ebbbba",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ece7e4",
+                        "surface": "#fdf8f5",
+                        "on-surface": "#1c1b1a",
+                        "on-tertiary-fixed": "#151d1a",
+                        "secondary-container": "#ebddd2",
+                        "inverse-on-surface": "#f5f0ed",
+                        "on-background": "#1c1b1a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdad9",
+                        "secondary-fixed-dim": "#d2c4b9",
+                        "surface-bright": "#fdf8f5",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f8f3f0",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#504444",
+                        "surface-variant": "#e6e2df",
+                        "primary-container": "#936a6a",
+                        "surface-container-highest": "#e6e2df",
+                        "on-tertiary-container": "#f5fff9",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ebbbba",
+                        "tertiary-fixed": "#dbe5df",
+                        "on-primary-container": "#fffbff",
+                        "surface-tint": "#7a5555",
+                        "tertiary": "#545e5a",
+                        "tertiary-container": "#6d7772",
+                        "surface-dim": "#ded9d6",
+                        "on-primary-fixed": "#2f1314",
+                        "outline": "#827473",
+                        "on-primary-fixed-variant": "#603e3e",
+                        "secondary": "#675d54",
+                        "on-secondary-fixed-variant": "#4e453d",
+                        "on-tertiary-fixed-variant": "#3f4945",
+                        "background": "#fdf8f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "container-padding": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "margin-page": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["36px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-sm": ["22px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    {% block extra_head %}{% endblock %}
+    <style>
+        .floating-cloud {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-35px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md watercolor-bg min-h-screen relative pb-[100px]">
+    <!-- Global Background Parallax & Floating Watercolor Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-[-10] select-none min-h-screen">
+        <!-- Top Left - flotantes.webp (Midground) -->
+        <div class="parallax-blob absolute top-[6%] left-[6%] md:left-[12%]" data-speed="0.78">
+            <div class="floating-cloud opacity-[0.45]" style="animation-delay: 0s; animation-duration: 9s;">
+                <img class="w-20 md:w-36" src="{% static 'images/flotantes.webp' %}" alt="" />
+            </div>
+        </div>
+        <!-- Top Right - flotantes (2).webp (Closer) -->
+        <div class="parallax-blob absolute top-[22%] right-[6%] md:right-[12%]" data-speed="0.65">
+            <div class="floating-cloud opacity-[0.58]" style="animation-delay: -2s; animation-duration: 5s;">
+                <img class="w-28 md:w-52" src="{% static 'images/flotantes (2).webp' %}" alt="" />
+            </div>
+        </div>
+        <!-- Mid Left - flotantes (3).webp (Far Away) -->
+        <div class="parallax-blob absolute top-[32%] left-4" data-speed="0.88">
+            <div class="floating-cloud opacity-[0.20]" style="animation-delay: -4s; animation-duration: 14s;">
+                <img class="w-16 md:w-28" src="{% static 'images/flotantes (3).webp' %}" alt="" />
+            </div>
+        </div>
+        <!-- Mid Right - flotantes (4).webp (Far Away) -->
+        <div class="parallax-blob absolute top-[40%] right-4" data-speed="0.85">
+            <div class="floating-cloud opacity-[0.25]" style="animation-delay: -1s; animation-duration: 14s;">
+                <img class="w-16 md:w-32" src="{% static 'images/flotantes (4).webp' %}" alt="" />
+            </div>
+        </div>
+        <!-- Bottom Left - flotantes (5).webp (Closer) -->
+        <div class="parallax-blob absolute top-[48%] left-[8%] md:left-[14%]" data-speed="0.68">
+            <div class="floating-cloud opacity-[0.55]" style="animation-delay: -3s; animation-duration: 6s;">
+                <img class="w-28 md:w-48" src="{% static 'images/flotantes (5).webp' %}" alt="" />
+            </div>
+        </div>
+        <!-- Bottom Right - flotantes.webp (repeated) (Far Away) -->
+        <div class="parallax-blob absolute top-[56%] right-[12%] md:right-[18%]" data-speed="0.86">
+            <div class="floating-cloud opacity-[0.36]" style="animation-delay: -5s; animation-duration: 15s;">
+                <img class="w-16 md:w-28" src="{% static 'images/flotantes.webp' %}" alt="" />
+            </div>
+        </div>
+    </div>
+
+    {% if request.guest %}
+    {% include 'components/navbar.html' %}
+    {% include 'components/hamburger_menu.html' %}
+    {% endif %}
+
+    <main class="w-full max-w-md md:max-w-[1140px] mx-auto px-margin-page pt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% if request.guest %}
+    {% include 'components/bottomnav.html' %}
+    {% endif %}
+
+    <!-- Global Javascript -->
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
