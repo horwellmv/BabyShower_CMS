@@ -91,6 +91,11 @@ if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
+elif not DEBUG:
+    raise ValueError(
+        "DATABASE_URL environment variable is required in production (DEBUG=False). "
+        "Please link the PostgreSQL service to your app in Railway variables."
+    )
 else:
     DATABASES = {
         'default': {
