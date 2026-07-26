@@ -28,9 +28,9 @@ class SupabaseStorage(Storage):
     """
 
     def __init__(self):
-        self.supabase_url = settings.SUPABASE_URL.rstrip('/') if settings.SUPABASE_URL else ''
-        self.supabase_key = settings.SUPABASE_KEY
-        self.bucket = settings.SUPABASE_BUCKET
+        self.supabase_url = settings.SUPABASE_URL.strip().rstrip('/') if settings.SUPABASE_URL else ''
+        self.supabase_key = settings.SUPABASE_KEY.strip().strip('"').strip("'") if settings.SUPABASE_KEY else ''
+        self.bucket = settings.SUPABASE_BUCKET.strip() if settings.SUPABASE_BUCKET else 'media'
         
         if not self.supabase_url or not self.supabase_key:
             raise ValueError(
@@ -45,14 +45,14 @@ class SupabaseStorage(Storage):
 
     @property
     def headers(self):
-        """Default headers for Supabase API requests."""
+        """Default headers for Supabase API requests (supports both legacy JWT and new sbs_ secret keys)."""
         return {
             "apikey": self.supabase_key,
             "Authorization": f"Bearer {self.supabase_key}",
         }
 
     def _save(self, name, content):
-        """Upload a file to Supabase Storage."""
+        """Upload a file to Supabase Storage with POST (and PUT fallback if existing)."""
         import mimetypes
         import logging
         logger = logging.getLogger(__name__)
@@ -75,7 +75,12 @@ class SupabaseStorage(Storage):
             "x-upsert": "true",  # Overwrite if exists
         }
 
+        # First attempt: POST request
         response = requests.post(url, headers=headers, data=file_data)
+
+        # If POST fails with 400/409 (e.g. object already exists), try PUT
+        if response.status_code in (400, 409) and ('Duplicate' in response.text or 'already exists' in response.text or 'The resource already exists' in response.text):
+            response = requests.put(url, headers=headers, data=file_data)
 
         if response.status_code not in (200, 201):
             error_msg = (
