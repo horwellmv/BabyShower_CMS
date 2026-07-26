@@ -33,10 +33,16 @@
             Nos hace muy felices saber que nos acompañarás en este día tan especial para celebrar la llegada de <span class="font-semibold text-primary italic">Adhara</span>.
         </p>
 
-        <!-- Action Button -->
-        <button onclick="closeRsvpModal()" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-4 px-6 rounded-full transition-all duration-300 ease-out shadow-md active:scale-95 focus:outline-none">
-            Volver al Inicio
-        </button>
+        <!-- Action Buttons -->
+        <div class="w-full space-y-3">
+            <a href="{% url 'gifts' %}" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md py-3.5 px-6 rounded-full transition-all duration-300 ease-out shadow-md active:scale-95 focus:outline-none flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">card_giftcard</span>
+                Ver Mesa de Regalos
+            </a>
+            <button onclick="closeRsvpModal()" class="w-full py-2.5 px-6 text-primary hover:text-surface-tint font-label-md text-label-md rounded-full border border-primary/30 hover:border-primary transition-all duration-150 focus:outline-none">
+                Volver al Inicio
+            </button>
+        </div>
 
         <!-- Decorative Clouds (Bottom Right) -->
         <div class="absolute -bottom-6 -right-6 opacity-10 pointer-events-none">
