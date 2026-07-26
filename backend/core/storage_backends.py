@@ -28,9 +28,9 @@ class SupabaseStorage(Storage):
     """
 
     def __init__(self):
-        self.supabase_url = settings.SUPABASE_URL.rstrip('/') if settings.SUPABASE_URL else ''
-        self.supabase_key = settings.SUPABASE_KEY
-        self.bucket = settings.SUPABASE_BUCKET
+        self.supabase_url = settings.SUPABASE_URL.strip().rstrip('/') if settings.SUPABASE_URL else ''
+        self.supabase_key = settings.SUPABASE_KEY.strip().strip('"').strip("'") if settings.SUPABASE_KEY else ''
+        self.bucket = settings.SUPABASE_BUCKET.strip() if settings.SUPABASE_BUCKET else 'media'
         
         if not self.supabase_url or not self.supabase_key:
             raise ValueError(
@@ -45,20 +45,27 @@ class SupabaseStorage(Storage):
 
     @property
     def headers(self):
-        """Default headers for Supabase API requests."""
+        """Default headers for Supabase API requests (supports both legacy JWT and new sbs_ secret keys)."""
         return {
             "apikey": self.supabase_key,
             "Authorization": f"Bearer {self.supabase_key}",
         }
 
     def _save(self, name, content):
-        """Upload a file to Supabase Storage."""
+        """Upload a file to Supabase Storage with POST (and PUT fallback if existing)."""
+        import mimetypes
+        import logging
+        logger = logging.getLogger(__name__)
+
         # Read file content
         content.seek(0)
         file_data = content.read()
 
-        # Determine content type
-        content_type = getattr(content, 'content_type', 'application/octet-stream')
+        # Determine content type reliably
+        content_type = getattr(content, 'content_type', None)
+        if not content_type or content_type == 'application/octet-stream':
+            guessed_type, _ = mimetypes.guess_type(name)
+            content_type = guessed_type or 'image/webp'
 
         # Upload via Supabase Storage API
         url = f"{self.base_api_url}/object/{self.bucket}/{name}"
@@ -68,13 +75,22 @@ class SupabaseStorage(Storage):
             "x-upsert": "true",  # Overwrite if exists
         }
 
+        # First attempt: POST request
         response = requests.post(url, headers=headers, data=file_data)
 
+        # If POST fails with 400/409 (e.g. object already exists), try PUT
+        if response.status_code in (400, 409) and ('Duplicate' in response.text or 'already exists' in response.text or 'The resource already exists' in response.text):
+            response = requests.put(url, headers=headers, data=file_data)
+
         if response.status_code not in (200, 201):
-            raise IOError(
-                f"Failed to upload file to Supabase Storage: "
-                f"{response.status_code} - {response.text}"
+            error_msg = (
+                f"[SupabaseStorage Error] Failed to upload '{name}' to bucket '{self.bucket}'. "
+                f"URL: {url} | Status: {response.status_code} | "
+                f"Content-Type: {content_type} | Response: {response.text}"
             )
+            print(error_msg)
+            logger.error(error_msg)
+            raise IOError(error_msg)
 
         return name
 
