@@ -1,436 +1,206 @@
 [
-{
-  "model": "invitations.guest",
-  "pk": 7,
-  "fields": {
-    "phone_number": "1111111111",
-    "full_name": "Invitado Demo",
-    "rsvp_status": "DECLINED",
-    "updated_at": "2026-07-24T13:39:18.805Z"
+  {
+    "model": "invitations.gift",
+    "pk": 1,
+    "fields": {
+      "title": "Cochecito de Paseo Premium",
+      "description": "Cochecito de paseo con suspensiÃ³n y diseÃ±o ergonÃ³mico.",
+      "suggested_link": "",
+      "image": "gifts/coche.png",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 2,
+    "fields": {
+      "title": "Set de baÃ±o.",
+      "description": "Shampoo y jabÃ³n liquido hipoalergÃ©nicos.",
+      "suggested_link": "",
+      "image": "gifts/set_bano.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 3,
+    "fields": {
+      "title": "Carrito organizador.",
+      "description": "Modular color blanco.",
+      "suggested_link": "https://www.mercadolibre.com.ar/p/MLA68846240?matt_tool=89488245&pdp_filters=item_i",
+      "image": "gifts/organizador.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 4,
+    "fields": {
+      "title": "Cambiador fijo antivuelco.",
+      "description": "",
+      "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-1129598694?attributes=PATTERN_NAME:Uk9TQSBCRULDiQ==&ma",
+      "image": "gifts/cambiador.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 5,
+    "fields": {
+      "title": "Cambiador portÃ¡til",
+      "description": "",
+      "suggested_link": "https://www.mercadolibre.com.ar/p/MLA74016466?matt_tool=89488245&pdp_filters=item_id:MLA3485007894&ua=a-RnmH7zUxFfyhFWnli92S6wzcuyKF8noyscIH2guArV6tLE#origin=share&sid=share&wid=MLA3485007894&action=",
+      "image": "gifts/viaje.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 6,
+    "fields": {
+      "title": "Limador de uÃ±as",
+      "description": "Especial para bebÃ©s reciÃ©n nacidos.",
+      "suggested_link": "https://www.mercadolibre.com.ar/p/MLA53770749?matt_tool=89488245&pdp_filters=item_id:MLA2367104916&ua=sXsCnPA2C1vCC3NkPIStgmdz_nu9QnE2zzpaCaTTbraPuvVC#origin=share&sid=share&wid=MLA2367104916&action=",
+      "image": "gifts/lima.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 7,
+    "fields": {
+      "title": "Mecedora para bebÃ©",
+      "description": "",
+      "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-874322261?attributes=COLOR_SECONDARY_COLOR:QmVpZ2U=,PATTERN_NAME:SGV4YWdvbmFs&matt_tool=89488245&ua=ohnV71vkmi5s1XzYdgTPJ2FHY7wMxR-SNXEqLaD0MsfIHLN9#origin=sha",
+      "image": "gifts/mesedora.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 8,
+    "fields": {
+      "title": "Almohada para amamantar",
+      "description": "",
+      "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-1104418188-almohadon-almohada-de-amamantar-lactancia-_JM?attributes=Motivo_9b7acb0_vpp%3AUm9zYQ%3D%3D&matt_tool=89488245&ua=ga5oq5eO36_dOFsM3JNg-qRU3SKeK1Z9cM8",
+      "image": "gifts/amamantar.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 9,
+    "fields": {
+      "title": "Fular",
+      "description": "Cargador de bebÃ©s.",
+      "suggested_link": "https://www.mercadolibre.com.ar/p/MLA51115397?matt_tool=89488245&pdp_filters=item_id:MLA3374081390&ua=Io-ZF4dSirbOOI5_N_G3pYoWjGgvuf2T9BDuHrByCOEMeYta#origin=share&sid=share&wid=MLA3374081390&action=w",
+      "image": "gifts/fular.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 10,
+    "fields": {
+      "title": "Toallitas hÃºmedas hipoalergÃ©nicas",
+      "description": "Sin alcohol ni perfume.",
+      "suggested_link": "",
+      "image": "gifts/toallitas.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 11,
+    "fields": {
+      "title": "Tetero marca Avent",
+      "description": "Avent para poder usar mamaderas compatibles",
+      "suggested_link": "",
+      "image": "gifts/tetero.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 12,
+    "fields": {
+      "title": "Ropita BebÃ© algodÃ³n",
+      "description": "Para ReciÃ©n Nacido, 3 6 o 9 meses.",
+      "suggested_link": "",
+      "image": "gifts/ropa.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 13,
+    "fields": {
+      "title": "Saca moco elÃ©ctrico",
+      "description": "",
+      "suggested_link": "https://www.mercadolibre.com.ar/aspirador-nasal-electrico-portatil-para-bebes-usb-recargable/up/MLAU3403744283#polycard_client=search-desktop&be_origin=backend&overlay_label=not_apply&search_layout=gr",
+      "image": "gifts/sacamocos.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 14,
+    "fields": {
+      "title": "Toallita de baÃ±o",
+      "description": "",
+      "suggested_link": "",
+      "image": "gifts/toalla_bano.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 15,
+    "fields": {
+      "title": "Babitas algodÃ³n multiusos",
+      "description": "",
+      "suggested_link": "",
+      "image": "gifts/babitas.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 16,
+    "fields": {
+      "title": "Cuna madera blanca",
+      "description": "",
+      "suggested_link": "",
+      "image": "gifts/cuna.webp",
+      "is_unlimited": false,
+      "order": 0
+    }
+  },
+  {
+    "model": "invitations.gift",
+    "pk": 17,
+    "fields": {
+      "title": "PaÃ±ales",
+      "description": "",
+      "suggested_link": "",
+      "image": "gifts/panales.webp",
+      "is_unlimited": true,
+      "order": 0
+    }
   }
-},
-{
-  "model": "invitations.guest",
-  "pk": 8,
-  "fields": {
-    "phone_number": "2222222222",
-    "full_name": "María R.",
-    "rsvp_status": "PENDING",
-    "updated_at": "2026-07-23T22:59:59.816Z"
-  }
-},
-{
-  "model": "invitations.guest",
-  "pk": 9,
-  "fields": {
-    "phone_number": "3333333333",
-    "full_name": "Carlos M.",
-    "rsvp_status": "PENDING",
-    "updated_at": "2026-07-23T22:59:59.820Z"
-  }
-},
-{
-  "model": "invitations.guest",
-  "pk": 10,
-  "fields": {
-    "phone_number": "4444444444",
-    "full_name": "Familia S.",
-    "rsvp_status": "PENDING",
-    "updated_at": "2026-07-23T22:59:59.824Z"
-  }
-},
-{
-  "model": "invitations.guest",
-  "pk": 11,
-  "fields": {
-    "phone_number": "5555555555",
-    "full_name": "Sofía L.",
-    "rsvp_status": "PENDING",
-    "updated_at": "2026-07-23T22:59:59.829Z"
-  }
-},
-{
-  "model": "invitations.guest",
-  "pk": 12,
-  "fields": {
-    "phone_number": "1150224171",
-    "full_name": "Tio Horwell",
-    "rsvp_status": "DECLINED",
-    "updated_at": "2026-07-25T05:28:52.537Z"
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 16,
-  "fields": {
-    "title": "Cochecito de Paseo Premium",
-    "description": "Cochecito de paseo con suspensión y diseño ergonómico.",
-    "suggested_link": "",
-    "image": "gifts/gift_6_7SdEPfq.png",
-    "is_unlimited": false,
-    "order": 12
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 18,
-  "fields": {
-    "title": "Set de baño.",
-    "description": "Shampoo y jabón liquido hipoalergénicos.",
-    "suggested_link": "",
-    "image": "gifts/gift-set-baño.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 19,
-  "fields": {
-    "title": "Carrito organizador.",
-    "description": "Modular color blanco.",
-    "suggested_link": "https://www.mercadolibre.com.ar/p/MLA68846240?matt_tool=89488245&pdp_filters=item_i",
-    "image": "gifts/gift-organizador.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 20,
-  "fields": {
-    "title": "Cambiador fijo antivuelco.",
-    "description": "",
-    "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-1129598694?attributes=PATTERN_NAME:Uk9TQSBCRULDiQ==&ma",
-    "image": "gifts/gift-cambiador_fijo-antivuelco.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 21,
-  "fields": {
-    "title": "Cambiador portátil",
-    "description": "",
-    "suggested_link": "https://www.mercadolibre.com.ar/p/MLA74016466?matt_tool=89488245&pdp_filters=item_id:MLA3485007894&ua=a-RnmH7zUxFfyhFWnli92S6wzcuyKF8noyscIH2guArV6tLE#origin=share&sid=share&wid=MLA3485007894&action=",
-    "image": "gifts/gift-cambiador-portatil.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 22,
-  "fields": {
-    "title": "Limador de uñas",
-    "description": "Especial para bebés recién nacidos.",
-    "suggested_link": "https://www.mercadolibre.com.ar/p/MLA53770749?matt_tool=89488245&pdp_filters=item_id:MLA2367104916&ua=sXsCnPA2C1vCC3NkPIStgmdz_nu9QnE2zzpaCaTTbraPuvVC#origin=share&sid=share&wid=MLA2367104916&action=",
-    "image": "gifts/gift-lima-uñas.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 23,
-  "fields": {
-    "title": "Mecedora para bebé",
-    "description": "",
-    "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-874322261?attributes=COLOR_SECONDARY_COLOR:QmVpZ2U=,PATTERN_NAME:SGV4YWdvbmFs&matt_tool=89488245&ua=ohnV71vkmi5s1XzYdgTPJ2FHY7wMxR-SNXEqLaD0MsfIHLN9#origin=sha",
-    "image": "gifts/gift-mesedora.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 24,
-  "fields": {
-    "title": "Almohada para amamantar",
-    "description": "",
-    "suggested_link": "https://articulo.mercadolibre.com.ar/MLA-1104418188-almohadon-almohada-de-amamantar-lactancia-_JM?attributes=Motivo_9b7acb0_vpp%3AUm9zYQ%3D%3D&matt_tool=89488245&ua=ga5oq5eO36_dOFsM3JNg-qRU3SKeK1Z9cM8",
-    "image": "gifts/gift-almohada-amamantar.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 25,
-  "fields": {
-    "title": "Fular",
-    "description": "Cargador de bebés.",
-    "suggested_link": "https://www.mercadolibre.com.ar/p/MLA51115397?matt_tool=89488245&pdp_filters=item_id:MLA3374081390&ua=Io-ZF4dSirbOOI5_N_G3pYoWjGgvuf2T9BDuHrByCOEMeYta#origin=share&sid=share&wid=MLA3374081390&action=w",
-    "image": "gifts/gift-fular.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 26,
-  "fields": {
-    "title": "Toallitas húmedas hipoalergénicas",
-    "description": "Sin alcohol ni perfume.",
-    "suggested_link": "",
-    "image": "gifts/gift-toallitas-humedas.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 27,
-  "fields": {
-    "title": "Tetero marca Avent",
-    "description": "Avent para poder usar mamaderas compatibles",
-    "suggested_link": "",
-    "image": "gifts/gift-tetero.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 28,
-  "fields": {
-    "title": "Ropita Bebé algodón",
-    "description": "Para Recién Nacido, 3 6 o 9 meses.",
-    "suggested_link": "",
-    "image": "gifts/gift-ropa.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 29,
-  "fields": {
-    "title": "Saca moco eléctrico",
-    "description": "",
-    "suggested_link": "https://www.mercadolibre.com.ar/aspirador-nasal-electrico-portatil-para-bebes-usb-recargable/up/MLAU3403744283#polycard_client=search-desktop&be_origin=backend&overlay_label=not_apply&search_layout=gr",
-    "image": "gifts/gift-sacamocos.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 30,
-  "fields": {
-    "title": "Toallita de baño",
-    "description": "",
-    "suggested_link": "",
-    "image": "gifts/gift-toalla_de_baño.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 31,
-  "fields": {
-    "title": "Babitas algodón multiusos",
-    "description": "",
-    "suggested_link": "",
-    "image": "gifts/gift-babitas.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 32,
-  "fields": {
-    "title": "Cuna madera blanca",
-    "description": "",
-    "suggested_link": "",
-    "image": "gifts/gift-coche.webp",
-    "is_unlimited": false,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.gift",
-  "pk": 33,
-  "fields": {
-    "title": "Pañales",
-    "description": "",
-    "suggested_link": "",
-    "image": "gifts/gift-pañales.webp",
-    "is_unlimited": true,
-    "order": 0
-  }
-},
-{
-  "model": "invitations.giftreservation",
-  "pk": 11,
-  "fields": {
-    "gift": 16,
-    "guest": 7,
-    "reserved_at": "2026-07-24T13:38:16.414Z"
-  }
-},
-{
-  "model": "invitations.giftreservation",
-  "pk": 14,
-  "fields": {
-    "gift": 32,
-    "guest": 7,
-    "reserved_at": "2026-07-25T05:17:21.228Z"
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 7,
-  "fields": {
-    "image": "gallery/img_eco.webp",
-    "caption": "El primer ultrasonido de la pequeña Adhara",
-    "order": 1
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 8,
-  "fields": {
-    "image": "gallery/img_grass.webp",
-    "caption": "Los felices futuros padres, Ali y Sofía",
-    "order": 2
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 9,
-  "fields": {
-    "image": "gallery/img_couple.webp",
-    "caption": "Una foto especial",
-    "order": 3
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 10,
-  "fields": {
-    "image": "gallery/img_futbol.webp",
-    "caption": "Eligiendo la ropita del bebé",
-    "order": 4
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 11,
-  "fields": {
-    "image": "gallery/gallery_4_jPmjsh6.png",
-    "caption": "¡Los primeros juguetitos de madera listos!",
-    "order": 5
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 12,
-  "fields": {
-    "image": "gallery/gallery_5_EQpZJ8Z.png",
-    "caption": "Preparativos con amor",
-    "order": 6
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 13,
-  "fields": {
-    "image": "gallery/img_kiss.webp",
-    "caption": "Celebrando nuestro matrimonio",
-    "order": 7
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 14,
-  "fields": {
-    "image": "gallery/hero_Ali_Sofi.webp",
-    "caption": "Dia de la revelación",
-    "order": 0
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 15,
-  "fields": {
-    "image": "gallery/flotantes_5.webp",
-    "caption": "test 1",
-    "order": 0
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 16,
-  "fields": {
-    "image": "gallery/flotantes_3.webp",
-    "caption": "test2",
-    "order": 0
-  }
-},
-{
-  "model": "invitations.galleryimage",
-  "pk": 17,
-  "fields": {
-    "image": "gallery/flotantes_5_SNlrg5o.webp",
-    "caption": "test3",
-    "order": 0
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$1200000$tmRMZWevHWHLLoH2yfum1h$POyRjpM2QovWyxu2c6p+YSHDPu58QRcD0k68byD4huY=",
-    "last_login": "2026-07-24T13:43:39.890Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "admin@example.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2026-07-23T20:48:00.258Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 2,
-  "fields": {
-    "password": "pbkdf2_sha256$1200000$rpgb6ZzAEVeOaNCWbMPH7N$dflsftt00PcImiKsj+BWXPCo+HdRJVxZGvy6U6gOiWg=",
-    "last_login": "2026-07-24T18:39:43.213Z",
-    "is_superuser": false,
-    "username": "papitos",
-    "first_name": "Ali y Sofia",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2026-07-23T23:28:05Z",
-    "groups": [],
-    "user_permissions": [
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      37,
-      38,
-      39,
-      40,
-      33,
-      34,
-      35,
-      36
-    ]
-  }
-}
 ]
