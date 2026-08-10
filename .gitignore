@@ -45,3 +45,6 @@ ehthumbs.db
 
 # Byte-compiled
 *.pyc
+
+# Node.js (Tailwind CSS)
+node_modules/

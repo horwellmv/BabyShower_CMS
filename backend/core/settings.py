@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     
     # Custom apps
     'apps.invitations',
+    
+    # Tailwind CSS
+    'tailwind',
+    'theme',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +62,17 @@ MIDDLEWARE = [
     
     # Custom guest session auth middleware
     'apps.invitations.middleware.GuestSessionMiddleware',
+    
+    # Browser reload
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 ROOT_URLCONF = 'core.urls'
